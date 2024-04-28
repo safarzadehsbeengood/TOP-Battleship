@@ -1,7 +1,4 @@
-const Gameboard = require("./modules/Gameboard");
-const Ship = require("./modules/Ship");
-const Square = require("./modules/Square");
+const Player = require("./modules/Player");
 
-const board = Gameboard();
-
-board.print();
+const p1 = Player("real");
+const p2 = Player("computer");
