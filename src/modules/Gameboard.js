@@ -5,6 +5,9 @@ function Gameboard() {
   // setup board
   let missedShots = [];
   let hitShots = [];
+  const getMissedShots = () => missedShots;
+  const getHitShots = () => hitShots;
+
   let ships = {
     carrier: Ship(5, "Carrier"),
     battleship: Ship(4, "Battleship"),
@@ -12,6 +15,9 @@ function Gameboard() {
     submarine: Ship(3, "Submarine"),
     patrol: Ship(2, "Patrol Boat"),
   };
+  const getShips = () => ships;
+
+  // squares
   let squares = new Array(10);
   for (let row = 0; row < 10; row++) {
     squares[row] = [];
@@ -19,27 +25,26 @@ function Gameboard() {
       squares[row].push(Square());
     }
   }
+  const getSquares = () => squares;
+
   // hard coding ships in for now
   squares[0][0].setShip(ships["carrier"]);
   squares[0][1].setShip(ships["carrier"]);
   squares[0][2].setShip(ships["carrier"]);
   squares[0][3].setShip(ships["carrier"]);
   squares[0][4].setShip(ships["carrier"]);
-  squares[2][0].setShip(ships["battleship"]);
-  squares[2][1].setShip(ships["battleship"]);
-  squares[2][2].setShip(ships["battleship"]);
-  squares[2][3].setShip(ships["battleship"]);
-  squares[4][0].setShip(ships["destroyer"]);
-  squares[4][1].setShip(ships["destroyer"]);
-  squares[4][2].setShip(ships["destroyer"]);
+  squares[2][5].setShip(ships["battleship"]);
+  squares[2][6].setShip(ships["battleship"]);
+  squares[2][7].setShip(ships["battleship"]);
+  squares[2][8].setShip(ships["battleship"]);
+  squares[4][4].setShip(ships["destroyer"]);
+  squares[5][4].setShip(ships["destroyer"]);
+  squares[6][4].setShip(ships["destroyer"]);
   squares[6][0].setShip(ships["submarine"]);
   squares[6][1].setShip(ships["submarine"]);
   squares[6][2].setShip(ships["submarine"]);
   squares[8][0].setShip(ships["patrol"]);
   squares[8][1].setShip(ships["patrol"]);
-
-  const getSquares = () => squares;
-  const getShips = () => ships;
 
   const checkLoss = () => {
     for (ship of Object.values(ships)) {
@@ -68,9 +73,6 @@ function Gameboard() {
     }
     console.log(res);
   };
-
-  const getMissedShots = () => missedShots;
-  const getHitShots = () => hitShots;
 
   return {
     getSquares,

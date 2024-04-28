@@ -20,6 +20,7 @@ test("Board functionality", () => {
   // print the board
   board.print();
   board.receiveAttack([0, 0]);
+  board.receiveAttack([0, 8]);
   board.print();
   expect(board.checkLoss()).toBe(false);
 });

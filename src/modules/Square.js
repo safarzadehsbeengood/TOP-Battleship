@@ -1,8 +1,6 @@
-const Ship = require("./Ship");
-
 function Square(ship = undefined) {
   let _ship = ship;
-  let char = _ship ? "*" : "-";
+  let char = _ship ? "* " : "☐ ";
   const getChar = () => char;
 
   const getShip = () => _ship;
@@ -10,7 +8,7 @@ function Square(ship = undefined) {
 
   const setShip = (newShip) => {
     _ship = newShip;
-    char = "*";
+    char = "* ";
   };
 
   const attack = () => {
