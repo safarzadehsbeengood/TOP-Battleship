@@ -11,6 +11,11 @@ module.exports = {
   devServer: {
     static: "./dist",
     watchFiles: ["./src/*"],
+    liveReload: true,
+    open: true,
+    port: 3000,
+    hot: true,
+    historyApiFallback: true,
   },
   optimization: {
     runtimeChunk: "single",
@@ -19,7 +24,8 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        include: path.resolve(__dirname, "src"),
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

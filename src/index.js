@@ -1,3 +1,5 @@
+import "./styles.css";
+
 const Player = require("./modules/Player");
 
 const p1 = Player("real");
