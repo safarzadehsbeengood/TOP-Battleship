@@ -8,4 +8,4 @@ const p2 = Player("computer");
 
 const UI_Controller = UI();
 
-UI_Controller.createBoards();
+UI_Controller.createBoards(p1.getBoard(), p2.getBoard());

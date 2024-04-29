@@ -26,6 +26,13 @@ function Gameboard() {
     }
   }
   const getSquares = () => squares;
+  const getSquare = (i, j) => {
+    if (i > 9 || i < 0 || j > 9 || j < 0) {
+      return undefined;
+    } else {
+      return squares[i][j].getShip();
+    }
+  };
 
   // hard coding ships in for now
   squares[0][0].setShip(ships["carrier"]);
@@ -76,6 +83,7 @@ function Gameboard() {
 
   return {
     getSquares,
+    getSquare,
     getShips,
     getMissedShots,
     getHitShots,
