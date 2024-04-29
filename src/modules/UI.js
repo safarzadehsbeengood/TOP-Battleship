@@ -31,14 +31,27 @@ function UI() {
           "p1-square",
           p1Board.getSquare(i, j) ? "ship" : "water"
         );
-        p2Square.classList.add(
-          "p2-square",
-          p2Board.getSquare(i, j) ? "ship" : "water"
-        );
+        p2Square.classList.add("p2-square", "water");
+        p2Square.addEventListener("click", (e) => {
+          const row = e.target.dataset.row;
+          const col = e.target.dataset.col;
+          const ship = p2Board.getSquare(row, col);
+          if (ship) {
+            ship.hit();
+            updateSquare(row, col, e.target.parentElement, true);
+          } else {
+            updateSquare(row, col, e.target.parentElement, false);
+          }
+        });
         p1BoardContainer.appendChild(p1Square);
         p2BoardContainer.appendChild(p2Square);
       }
     }
+  };
+
+  const clearBoard = (board) => {
+    p1BoardContainer.innerHTML = "";
+    p2BoardContainer.innerHTML = "";
   };
   return {
     createBoards,
