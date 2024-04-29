@@ -1,5 +1,6 @@
 const Ship = require("./Ship");
 const Square = require("./Square");
+const UI = require("./UI");
 
 function Gameboard() {
   // setup board
@@ -9,11 +10,11 @@ function Gameboard() {
   const getHitShots = () => hitShots;
 
   let ships = {
-    carrier: Ship(5, "Carrier"),
-    battleship: Ship(4, "Battleship"),
-    destroyer: Ship(3, "Destroyer"),
-    submarine: Ship(3, "Submarine"),
-    patrol: Ship(2, "Patrol Boat"),
+    carrier: Ship(5, "carrier"),
+    battleship: Ship(4, "battleship"),
+    destroyer: Ship(3, "destroyer"),
+    submarine: Ship(3, "submarine"),
+    patrol: Ship(2, "patrol"),
   };
   const getShips = () => ships;
 
@@ -60,6 +61,19 @@ function Gameboard() {
     return true;
   };
 
+  const getSquareColor = (i, j) => {
+    const square = squares[i][j];
+    if (missedShots.includes([i, j])) {
+      return "blue";
+    } else if (hitShots.includes([i, j])) {
+      return "red";
+    } else if (square.getShip()) {
+      return "black";
+    } else {
+      return "white";
+    }
+  };
+
   const receiveAttack = (coords) => {
     const square = squares[coords[0]][coords[1]];
     square.attack();
@@ -84,6 +98,7 @@ function Gameboard() {
   return {
     getSquares,
     getSquare,
+    getSquareColor,
     getShips,
     getMissedShots,
     getHitShots,

@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.square {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+}
+
+.p2-square:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+.ship {
+    background-color: rgb(0, 0, 0);
+}
+
+.water {
+    background-color: rgb(99, 213, 255);
+}
+
+.hit {
+    background-color: rgb(255, 0, 0);
+}
+
+.miss {
+    background-color: yellow;
+}
