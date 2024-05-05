@@ -6,6 +6,33 @@
     <title>Battleship</title>
 </head>
 <body class="flex flex-col justify-between h-screen">
+    <div class="info">
+        <h1 class="text-center text-4xl">Battleship</h1>
+        <div class="flex justify-center gap-10">
+            <div class="flex flex-col gap-5">
+                <h2 class="text-center text-2xl">Player 1</h2>
+                <div class="flex justify-center gap-5">
+                    <div class="flex flex-col gap-5">
+                        <h3 class="text-center text-xl">Ships: <span id="p1-ships"></span></h3>
+                    </div>
+                    <div class="flex flex-col gap-5">
+                        <h3 class="text-center text-xl">Hits: <span id="p1-hits"></span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-5">
+                <h2 class="text-center text-2xl">Player 2</h2>
+                <div class="flex justify-center gap-5">
+                    <div class="flex flex-col gap-5">
+                        <h3 class="text-center text-xl">Ships: <span id="p2-ships"></span></h3>
+                    </div>
+                    <div class="flex flex-col gap-5">
+                        <h3 class="text-center text-xl">Hits: <span id="p2-hits"></span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="boards-container" class="flex flex-col justify-center items-center h-full gap-20 p-20">
         <div id="p2-board" class="grid aspect-square grid-rows-10 grid-cols-10">
         </div>

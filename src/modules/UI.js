@@ -3,6 +3,15 @@ const Gameboard = require("./Gameboard");
 function UI() {
   const p1BoardContainer = document.getElementById("p1-board");
   const p2BoardContainer = document.getElementById("p2-board");
+  const p1Hits = document.getElementById("p1-hits");
+  const p2Hits = document.getElementById("p2-hits");
+  const p1Ships = document.getElementById("p1-ships");
+  const p2Ships = document.getElementById("p2-ships");
+
+  p1Hits.textContent = 0;
+  p2Hits.textContent = 0;
+  p1Ships.textContent = 5;
+  p2Ships.textContent = 5;
 
   const makeSquare = (i, j) => {
     const square = document.createElement("div");
@@ -20,6 +29,7 @@ function UI() {
     const square = findSquare(row, col, board);
     square.classList.remove("water");
     square.classList.add(hit ? "hit" : "miss");
+    if (hit) p1Hits.textContent++;
   };
 
   const createBoards = (p1Board, p2Board) => {
@@ -49,12 +59,21 @@ function UI() {
     }
   };
 
+  const updateShips = () => {};
+  const updateHits = () => {
+    p1Hits.textContent = p1.getHits().length;
+    p2Hits.textContent = p2.getHits().length;
+  };
+
   const clearBoard = (board) => {
     p1BoardContainer.innerHTML = "";
     p2BoardContainer.innerHTML = "";
   };
   return {
     createBoards,
+    updateHits,
+    updateShips,
+    clearBoard,
     updateSquare,
   };
 }

@@ -1,6 +1,5 @@
 const Ship = require("./Ship");
 const Square = require("./Square");
-const UI = require("./UI");
 
 function Gameboard() {
   // setup board
